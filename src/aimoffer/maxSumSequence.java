@@ -25,5 +25,23 @@ public class maxSumSequence {
 		}
 		return sum;
 	}
+	
+	
+	
+	public static int findMaxSum(int[] a){
+		int len=a.length;
+		int[] dp=new int[len];
+		int sum=0;
+		dp[0]=a[0];
+		for(int i=1;i<a.length;i++){
+			if(dp[i-1]>0){
+				dp[i]=dp[i-1]+a[i];
+			}else{
+				dp[i]=a[i];
+			}
+			sum=Math.max(dp[i], sum);
+		}
+		return sum;
+	}
 
 }
